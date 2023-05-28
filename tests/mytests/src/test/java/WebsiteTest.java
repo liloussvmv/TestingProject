@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 
 
-public class HackerOneTest {
+public class WebsiteTest {
     private WebDriver driver;
 
     @Before
@@ -55,10 +55,12 @@ public class HackerOneTest {
         System.out.println("==================== SETTINGS ===========");
         SettingsPage settingsPage = new SettingsPage(this.driver);
         settingsPage.sendFormWhileLoggedIn();
+        
+        // Testing form submission
+        Assert.assertEquals("myDescription", settingsPage.readTextArea());
+
         // reading TextArea
         System.out.println(settingsPage.readTextArea());
-        // testing form submission
-        // Assert.assertEquals("myDescription", settingsPage.readTextArea());
 
         // settingsPage.fileUpload();
 
