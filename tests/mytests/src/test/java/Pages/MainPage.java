@@ -27,8 +27,12 @@ class MainPage extends PageBase {
 
     // Functions
     public String getFooterText() {
-        return this.waitAndReturnElement(footerBy).getText();
+        return this.waitAndReturnElement(this.footerBy).getText();
     }
 
+    public LoginPage clickLoginToRedirect() {
+        this.waitAndReturnElement(this.loginRedirectorBy).click();
+        return new LoginPage(this.driver);
+    }
 
 }

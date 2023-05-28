@@ -32,15 +32,16 @@ public class WebsiteTest {
 
     @Test
     public void testSelenium() {
-
+        LoginPage loginPage = new LoginPage(this.driver);
         // Static Page
         MainPage mainPage = new MainPage(this.driver);
         System.out.println("====================FOOTER ===========");
         System.out.println(mainPage.getFooterText());
-
+        loginPage = mainPage.clickLoginToRedirect();
+        Assert.assertTrue(loginPage.waitAndCheckPageLoad());
 
         // Login Test
-        LoginPage loginPage = new LoginPage(this.driver);
+        
         DashboardPage dashboardPage = loginPage.loginIn();
         System.out.println("==================== BODY ===========");
         System.out.println(dashboardPage.getBodyText());
